@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Rubik:wght@500&display=swap');
+body{
+    align-content: center;
+    align-items: center;
+    display:flex;
+    min-height:100vh;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+   
+}
+
+/*Contains the main container including the time stamps */
+.gantt_container{
+   margin-top: 20px;
+    width:80vw;
+    display: flex;
+    flex-direction: column;
+   
+   
+    /*
+    align-items: center;
+    justify-content: center;
+    */
+    height: 45px;
+}
+/*Just the bar */
+.gantt_main
+{
+   width: 100%;
+    display: flex;
+    font-size:1em;
+ flex-direction: row;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+}
+/*Each process in the gantt chart*/
+.gantt1
+{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width:20%;
+    display: flex;    
+    background-color: aqua;
+    height:25px;
+}
+.gantt1:nth-child(2)
+{
+    width:20%;
+    display: flex;
+    background-color: rgb(221, 76, 19);
+   
+}
+.gantt1:nth-child(3)
+{
+    width:35%;
+    display: flex;
+    background-color: rgb(105, 22, 240);
+   
+}
+.gantt1:nth-child(4)
+{
+    width:24%;
+    display: flex;
+    background-color: rgb(137, 235, 26);
+}
+.gantt_timeContainer
+{
+    width:100%;
+    display: flex;
+    
+}
+.gantt_time
+{
+    width:2px;
+    height: 15px;
+    background-color: black;
+    margin-left: 20.5%;
+}
+.gantt_time:nth-child(2)
+{
+    width:2px;
+    height: 15px;
+    background-color: black;
+    margin-left: 19.7%;
+}
+.gantt_time:nth-child(3)
+{
+    width:2px;
+    height: 15px;
+    background-color: black;
+    margin-left: 34.7%;
+}
+.gantt_time:nth-child(4)
+{
+    width:2px;
+    height: 15px;
+    background-color: black;
+    margin-left: 23.7%;
+}
+/*
+.gantt2
+{
+    width:30%;
+    display: flex;
+    background-color: rgb(131, 209, 42);
+    height: 20px;
+}
+.gantt3
+{
+    width:40%;
+    display: flex;
+    background-color: rgb(206, 65, 47);
+    height: 20px;
+}
+*/
+.drop_downWidth{
+    width:70px;
+    font-family: 'Nunito', sans-serif;
+    margin: auto;
+}
