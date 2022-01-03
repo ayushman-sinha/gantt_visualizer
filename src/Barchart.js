@@ -6,7 +6,7 @@ const Barchart=(props)=>{
   const [arrayGantt, setArrayGantt] = useState([]); 
   console.log(sel);
   useEffect(()=>{
-    setArrayGantt([Array(4).fill(<div className='gantt1'></div>)])
+    setArrayGantt([Array(sel).fill(<div className='gantt1'></div>)])
   }, [sel]);
   // console.log(arrayGantt);
 

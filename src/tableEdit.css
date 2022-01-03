@@ -15,3 +15,10 @@
     width:120px;
     height: 30px;
 }
+.input_edit
+{
+    width:30px;
+    background-color: transparent;
+ border-color: transparent;
+ text-align: right;
+}

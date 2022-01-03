@@ -1,7 +1,12 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './tableEdit.css';
 const EntryTable = (props) => {
     const entry=props.numOfEntries;
+    const[inputTab,SetinputTab]=useState('');
+    function inputChange(e){
+        SetinputTab(e.target.value);
+        console.log(e.target.value);
+    }
     console.log(entry);
     const ArrayEntry=[];
         return (
@@ -17,18 +22,18 @@ const EntryTable = (props) => {
                 <tbody>
                     <tr>
                     <td className='row_editContent'>P1</td>
-                    <td className='row_editContent'>0ms</td>
-                    <td className='row_editContent'>3 ms</td>
+                    <td className='row_editContent'><input className='input_edit' placeholder='0' value={inputTab} onChange={(e)=>inputChange(e)}></input>ms</td>
+                    <td className='row_editContent'><input className='input_edit' placeholder='0'></input>ms</td>
                     </tr>
                     <tr>
                     <td className='row_editContent'>P2</td>
-                    <td className='row_editContent'>0 ms</td>
-                    <td className='row_editContent'>5 ms</td>
+                    <td className='row_editContent'><input className='input_edit' placeholder='0'></input>ms</td>
+                    <td className='row_editContent'><input className='input_edit' placeholder='0'></input>ms</td>
                     </tr>
                     <tr>
                     <td className='row_editContent'>P3</td>
-                    <td className='row_editContent'>0 ms</td>
-                    <td className='row_editContent'>8 ms</td>
+                    <td className='row_editContent'><input className='input_edit' placeholder='0'></input>ms</td>
+                    <td className='row_editContent'><input className='input_edit' placeholder='0'></input>ms</td>
                     </tr>
                 </tbody>
             </table>
