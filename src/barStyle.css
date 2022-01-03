@@ -9,7 +9,16 @@ body{
     overflow: hidden;
    
 }
-
+.Main_Container{
+    align-content: center;
+    align-items: center;
+    display:flex;
+   flex-direction: column;
+ 
+    justify-content: center;
+    text-align: center;
+  
+}
 /*Contains the main container including the time stamps */
 .gantt_container{
    margin-top: 20px;

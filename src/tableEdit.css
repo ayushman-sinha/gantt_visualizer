@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Rubik:wght@500&display=swap');
+.MainTableContainer
+{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 20px;
+}
+.row_editHeading{
+    background-color: rgba(90, 85, 85, 0.205);
+    width:120px;
+    height: 30px;
+}
+.row_editContent{
+    background-color: rgba(40, 109, 126, 0.377);
+    font-size: smaller;
+    width:120px;
+    height: 30px;
+}

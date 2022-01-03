@@ -2,18 +2,20 @@ import React,{useState,useEffect} from 'react'
 import './barStyle.css';
 
 const Barchart=(props)=>{    
+  const sel = props.selected_val; 
+  const [arrayGantt, setArrayGantt] = useState([]); 
+  console.log(sel);
+  useEffect(()=>{
+    setArrayGantt([Array(4).fill(<div className='gantt1'></div>)])
+  }, [sel]);
+  // console.log(arrayGantt);
 
-       const sel=props.selected_val;
-     const a=5;
-       console.log(sel);
-      const arrayGantt=[Array(a).fill(<div className='gantt1'></div>)];
-      
-       
-      
+  //
+  
         return (<div>
             <div className='gantt_container'>
             <div className='gantt_main'>
-            {arrayGantt.map((num)=>num)}
+            {arrayGantt.map((sel)=>sel)}
         </div>
             </div>
             </div>);
