@@ -3,7 +3,7 @@ import './barStyle.css';
 
 const Barchart=(props)=>{    
   const sel = props.selected_val;  
-  console.log(sel);
+ // console.log(sel);
   var ans=[];
   function getColor(k)
   {
@@ -11,7 +11,7 @@ const Barchart=(props)=>{
     return arColor[k-1];
   }
 function getRandomColor(k) {
-  console.log(k);
+  //console.log(k);
   var letters = '0123456789ABCDEF';  
   var color = '#';
   if(k%2==0)

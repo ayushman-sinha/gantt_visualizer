@@ -2,18 +2,27 @@ import React,{useState} from 'react';
 import './tableEdit.css';
 const EntryTable = (props) => {
     const entry=props.numOfEntries;
-    const[inputTab,SetinputTab]=useState('');
-    function inputChange(e){
-        SetinputTab(e.target.value);
-        console.log(e.target.value);
+    const[inputArrival,SetinputArrival]=useState('');
+    const[inputBurst,SetinputBurst]=useState('');
+ 
+    function changeArrival(e)
+    {
+        console.log(e.target.value+"A");
+        SetinputArrival(e.target.value);
     }
+    function changeBurst(e)
+    {
+        console.log(e.target.value+"B");
+        SetinputBurst(e.target.value);
+    }
+   
    // console.log(entry);
     var ArrayEntry=[];
     for(var i=1;i<=entry;i++)
     ArrayEntry.push( <tr>                       
         <td className='row_editContent'>P{i}</td>
-        <td className='row_editContent'><input className='input_edit' placeholder='0'></input>ms</td>
-        <td className='row_editContent'><input className='input_edit' placeholder='0'></input>ms</td>
+        <td className='row_editContent'><input className='input_edit' placeholder='0' onChange={(e)=>changeArrival(e)}></input>ms</td>
+        <td className='row_editContent'><input className='input_edit' placeholder='0' onChange={(e)=>changeBurst(e)}></input>ms</td>
         </tr>);
 
         return (
