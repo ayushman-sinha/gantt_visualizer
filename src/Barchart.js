@@ -8,7 +8,7 @@ const Barchart=(props)=>{
   const barMap=4;
   var ans=[];
   for (var i = 0; i <= sel; i++) {
-    ans.push(<div className='gantt1'></div>);
+    ans.push(<div className='gantt1' key={i}></div>);
 }
   
   useEffect(()=>{
