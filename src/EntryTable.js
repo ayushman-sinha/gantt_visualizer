@@ -8,7 +8,14 @@ const EntryTable = (props) => {
         console.log(e.target.value);
     }
    // console.log(entry);
-    const ArrayEntry=[];
+    var ArrayEntry=[];
+    for(var i=1;i<=entry;i++)
+    ArrayEntry.push( <tr>                       
+        <td className='row_editContent'>P{i}</td>
+        <td className='row_editContent'><input className='input_edit' placeholder='0'></input>ms</td>
+        <td className='row_editContent'><input className='input_edit' placeholder='0'></input>ms</td>
+        </tr>);
+
         return (
         <div>
             <table className='MainTableContainer' >
@@ -19,26 +26,8 @@ const EntryTable = (props) => {
                         <th className='row_editHeading'>Burst Time</th>
                     </tr>
                 </thead>
-                <tbody>
-              
-                    <tr>
-                       
-                    <td className='row_editContent'>P1</td>
-                    <td className='row_editContent'><input className='input_edit' placeholder='0' value={inputTab} onChange={(e)=>inputChange(e)}></input>ms</td>
-                    <td className='row_editContent'><input className='input_edit' placeholder='0'></input>ms</td>
-                    </tr>
-                    <tr>
-                    <td className='row_editContent'>P2</td>
-                    <td className='row_editContent'><input className='input_edit' placeholder='0'></input>ms</td>
-                    <td className='row_editContent'><input className='input_edit' placeholder='0'></input>ms</td>
-                    </tr>
-                    <tr>
-                    <td className='row_editContent'>P3</td>
-                    <td className='row_editContent'><input className='input_edit' placeholder='0'></input>ms</td>
-                    <td className='row_editContent'><input className='input_edit' placeholder='0'></input>ms</td>
-                  
-                    </tr>
-                   
+                <tbody> 
+                    {ArrayEntry}
                 </tbody>
             </table>
         </div>
