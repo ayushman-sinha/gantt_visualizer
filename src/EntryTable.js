@@ -7,7 +7,7 @@ const EntryTable = (props) => {
         SetinputTab(e.target.value);
         console.log(e.target.value);
     }
-    console.log(entry);
+   // console.log(entry);
     const ArrayEntry=[];
         return (
         <div>
@@ -20,7 +20,9 @@ const EntryTable = (props) => {
                     </tr>
                 </thead>
                 <tbody>
+              
                     <tr>
+                       
                     <td className='row_editContent'>P1</td>
                     <td className='row_editContent'><input className='input_edit' placeholder='0' value={inputTab} onChange={(e)=>inputChange(e)}></input>ms</td>
                     <td className='row_editContent'><input className='input_edit' placeholder='0'></input>ms</td>
@@ -34,7 +36,9 @@ const EntryTable = (props) => {
                     <td className='row_editContent'>P3</td>
                     <td className='row_editContent'><input className='input_edit' placeholder='0'></input>ms</td>
                     <td className='row_editContent'><input className='input_edit' placeholder='0'></input>ms</td>
+                  
                     </tr>
+                   
                 </tbody>
             </table>
         </div>

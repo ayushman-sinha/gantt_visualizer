@@ -24,7 +24,7 @@ const App=()=>{
        <option>5</option>
        </select> 
        <EntryTable numOfEntries={selects}></EntryTable>
-       <Barchart selected_val={selects}></Barchart>
+       <Barchart selected_val={selects} ></Barchart>
        </div> 
             
      );
