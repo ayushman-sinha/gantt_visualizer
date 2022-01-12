@@ -3,15 +3,19 @@ import './barStyle.css';
 
 const Barchart=(props)=>{    
   let sel = props.selected_val; 
- let ar1=props.arrivalArray; 
- console.log(ar1);
-
+ let arivalTime=props.arrivalArray; //Array containing the Arrival Times
+ let burstTime=props.burstArray;//Array containing the Burst Times
+ let arrivalCount=props.countA;
+ let burstCount=props.countB;
+console.log(burstCount);
+/* console.log( arivalTime);
+ console.log(burstTime);*/
  
- // console.log(sel);
+
   let ans=[];
   function getColor(k)
   {
-    var arColor=['#DACC3E','#7D1538','#ED254E','#153B50','#D77A61','#393D3F','#74C2FC','#011936'];
+    var arColor=['#498331','#7D1538','#ED254E','#153B50','#D77A61','#393D3F','#74C2FC','#011936'];
     return arColor[k-1];
   }
 function getRandomColor(k) {
@@ -29,8 +33,24 @@ function getRandomColor(k) {
   }
   return color;
 }
- for (let i = 1; i <= sel; i++) {  
-    ans[i]=(<div className='gantt1' key={i} style={{background:getColor(i),color:`white`}}>P{i-1}</div>);
+
+function getWidth(index)
+{
+  let sum=parseInt(0);
+  for(let i=0;i<8;i++)
+  {
+     if(burstTime[i]!==null)
+     sum+=Number(burstTime[i]);
+  }
+
+  sum=(burstTime[index]/sum)*100;
+
+  sum=Math.ceil(sum);
+ // console.log(sum);
+  return sum;
+}
+ for (let i = 1; i <= burstCount; i++) {    
+    ans[i]=(<div className='gantt1' key={i} style={{background:getColor(i),color:`white`,width:getWidth(i-1)+`%`}}>P{i-1}</div>);
  }
   //ans[2]
 

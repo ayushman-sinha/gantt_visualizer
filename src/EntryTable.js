@@ -4,16 +4,18 @@ import Barchart from './Barchart';
 
 const EntryTable = ({numOfEntries}) => {
   let entry=numOfEntries;
-    const [inputArrival, setInputArrival] = useState(Array(entry).fill(""));
-    const [inputBurst, setInputBurst] = useState(Array(entry).fill(""));  
-    console.log(entry);
-   
+    const [inputArrival, setInputArrival] = useState(Array(8).fill(""));
+    const [inputBurst, setInputBurst] = useState(Array(8).fill(""));  
+    //console.log(entry);
+    const[arrivalCount,setArrivalCount]=useState(0);
+    const[burstCount,setBurstCount]=useState(0);
     function changeArrival(index) {     
       return (e) => {   
             
        // console.log(e.target.value + "A");    
         setInputArrival((values) =>
           values.map((value, i) => (i === index ? e.target.value : value)));
+          setArrivalCount(arrivalCount+1);
          
         
       };
@@ -22,10 +24,15 @@ const EntryTable = ({numOfEntries}) => {
       return (e) => {  
               //  console.log(e.target.value + "B");         
         setInputBurst((values) =>
-          values.map((value, i) => (i === index ? e.target.value : value))
-          
-        );
+          values.map((value, i) => (i === index ? e.target.value : value))         
+        ); 
+       
+         if(e.target.value.length===0)
+        setBurstCount(burstCount-1);
+        else
+        setBurstCount(burstCount+1);
       };
+      
     }
    
   
@@ -73,7 +80,7 @@ const EntryTable = ({numOfEntries}) => {
           <tbody>{ArrayEntry}</tbody>
         </table>
         <button>Click Me</button>
-        <Barchart selected_val={entry} arrivalArray={inputArrival} burstArray={inputBurst} ></Barchart>
+        <Barchart selected_val={entry} arrivalArray={inputArrival} burstArray={inputBurst} countA={arrivalCount} countB={burstCount}></Barchart>
       </div>
     );
   };

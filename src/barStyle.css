@@ -57,28 +57,7 @@ body{
     background-color: aqua;
     height:25px;
 }
-/*
-.gantt1:nth-child(2)
-{
-    width:20%;
-    display: flex;
-    background-color: rgb(221, 76, 19);
-   
-}
-.gantt1:nth-child(3)
-{
-    width:35%;
-    display: flex;
-    background-color: rgb(105, 22, 240);
-   
-}
-.gantt1:nth-child(4)
-{
-    width:24%;
-    display: flex;
-    background-color: rgb(137, 235, 26);
-}
-*/
+
 .gantt_timeContainer
 {
     width:100%;
