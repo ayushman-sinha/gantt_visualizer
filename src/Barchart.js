@@ -2,9 +2,13 @@ import React,{useState,useEffect} from 'react'
 import './barStyle.css';
 
 const Barchart=(props)=>{    
-  const sel = props.selected_val;  
+  let sel = props.selected_val; 
+ let ar1=props.arrivalArray; 
+ console.log(ar1);
+
+ 
  // console.log(sel);
-  var ans=[];
+  let ans=[];
   function getColor(k)
   {
     var arColor=['#DACC3E','#7D1538','#ED254E','#153B50','#D77A61','#393D3F','#74C2FC','#011936'];
@@ -25,10 +29,10 @@ function getRandomColor(k) {
   }
   return color;
 }
-  for (var i = 1; i <= sel; i++) {
-    ans.push(<div className='gantt1' key={i} style={{background:getColor(i)}}> </div>);
-}
-  
+ for (let i = 1; i <= sel; i++) {  
+    ans[i]=(<div className='gantt1' key={i} style={{background:getColor(i),color:`white`}}>P{i-1}</div>);
+ }
+  //ans[2]
 
         return (<div>
             <div className='gantt_container'>
@@ -36,6 +40,7 @@ function getRandomColor(k) {
            {ans}
         </div>
             </div>
+            
             </div>);
     }
 

@@ -1,29 +1,33 @@
 import React,{useState} from 'react';
 import './tableEdit.css';
-const EntryTable = (props) => {
-    const entry = props.numOfEntries;
+import Barchart from './Barchart';
+
+const EntryTable = ({numOfEntries}) => {
+  let entry=numOfEntries;
     const [inputArrival, setInputArrival] = useState(Array(entry).fill(""));
-    const [inputBurst, setInputBurst] = useState(Array(entry).fill(""));
-  
-    function changeArrival(index) {
-      return (e) => {
-     
-       // console.log(e.target.value + "A");
+    const [inputBurst, setInputBurst] = useState(Array(entry).fill(""));  
+    console.log(entry);
+   
+    function changeArrival(index) {     
+      return (e) => {   
+            
+       // console.log(e.target.value + "A");    
         setInputArrival((values) =>
-          values.map((value, i) => (i === index ? e.target.value : value))
-        );
-      
+          values.map((value, i) => (i === index ? e.target.value : value)));
+         
+        
       };
     }
     function changeBurst(index) {
       return (e) => {  
-      //  console.log(e.target.value + "B");
-     
+              //  console.log(e.target.value + "B");         
         setInputBurst((values) =>
           values.map((value, i) => (i === index ? e.target.value : value))
+          
         );
       };
     }
+   
   
     // console.log(entry);
     const ArrayEntry = Array.from({ length: entry}).map((_, i) => (
@@ -55,9 +59,9 @@ const EntryTable = (props) => {
           </td>
         </tr>
     ));
-  
+ // const bar=<Barchart selected_val={entry} arrivalArray={ArrayEntry} ></Barchart>;
     return (
-      <div>
+      <div  className='Main_Container'>
         <table className="MainTableContainer">
           <thead>
             <tr>
@@ -68,6 +72,8 @@ const EntryTable = (props) => {
           </thead>
           <tbody>{ArrayEntry}</tbody>
         </table>
+        <button>Click Me</button>
+        <Barchart selected_val={entry} arrivalArray={inputArrival} burstArray={inputBurst} ></Barchart>
       </div>
     );
   };

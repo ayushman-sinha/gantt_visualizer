@@ -1,9 +1,8 @@
 import React,{useState} from 'react'
-import Barchart from './Barchart'
 import EntryTable from './EntryTable';
 import './barStyle.css';
 const App=()=>{
-  const[selects,setSelects]=useState(); 
+  const[selects,setSelects]=useState(0); 
    function handleChange(e)
    {
      //console.log('clicked');
@@ -27,7 +26,7 @@ const App=()=>{
        <option>8</option>
        </select> 
        <EntryTable numOfEntries={selects}></EntryTable>
-       <Barchart selected_val={selects} ></Barchart>
+     
        </div> 
             
      );
