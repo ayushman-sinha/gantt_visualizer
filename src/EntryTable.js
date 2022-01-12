@@ -27,9 +27,10 @@ const EntryTable = ({numOfEntries}) => {
           values.map((value, i) => (i === index ? e.target.value : value))         
         ); 
        
+        
          if(e.target.value.length===0)
         setBurstCount(burstCount-1);
-        else
+        else if(e.target.value.length===1)
         setBurstCount(burstCount+1);
       };
       
