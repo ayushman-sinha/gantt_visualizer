@@ -49,15 +49,56 @@ function getWidth(index)
  // console.log(sum);
   return sum;
 }
- for (let i = 1; i <= burstCount; i++) {    
-    ans[i]=(<div className='gantt1' key={i} style={{background:getColor(i),color:`white`,width:getWidth(i-1)+`%`}}>P{i-1}</div>);
- }
-  //ans[2]
+//if(burstCount==sel)
+ for (let i = 1; i <= sel; i++)  
+ {
+   if(i===1)
+   ans[i]=(<> <div className='time_container'>
+     <div className='gantt_time'><div className='timeDisp'>0ms</div></div>
+     </div>
+
+          <div className='gantt1'
+          key={i}
+            style={{ background: getColor(i), 
+            color: `white`, 
+            width: getWidth(i - 1) + `%` }}>
+              P{i - 1}
+              </div> 
+
+                <div className='time_container'>
+                <div className='gantt_time'><div className='timeDisp'>{burstTime[i-1]}ms
+                </div>
+                </div>
+                </div>      
+              </>);
+        else
+            ans[i]=(<><div className='gantt1'
+            key={i}
+            style={{ background: getColor(i), 
+            color: `white`, 
+            width: getWidth(i - 1) + `%` }}>
+             P{i - 1}
+            </div>
+
+            <div className='time_container'>
+             <div className='gantt_time'>
+              <div className='timeDisp'>{burstTime[i-1]}ms
+              </div>
+              
+              </div>
+              </div>
+           </>);
+
+}
+ 
 
         return (<div>
             <div className='gantt_container'>
+            <div className='ganttLay'>
             <div className='gantt_main'>
+             
            {ans}
+           </div>
         </div>
             </div>
             

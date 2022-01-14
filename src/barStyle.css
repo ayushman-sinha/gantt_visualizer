@@ -31,7 +31,7 @@ body{
     align-items: center;
     justify-content: center;
     */
-    height: 45px;
+    height: 65px;
 }
 /*Just the bar */
 .gantt_main
@@ -51,63 +51,43 @@ body{
 {
     text-align: center;
     align-items: center;
-    justify-content: center;
+    justify-content: center;  
+    margin-left:-2px;
     width:20%;
     display: flex;    
     background-color: aqua;
     height:25px;
 }
 
-.gantt_timeContainer
+.time_container
 {
-    width:100%;
-    display: flex;
+  display: flex;
+  flex-direction: column;  
+  justify-content: center;
+   
     
 }
 .gantt_time
 {
     width:2px;
     height: 15px;
-    background-color: black;
-    margin-left: 20.5%;
+    margin-top:40px; 
+    
+    background-color: black;   
 }
-.gantt_time:nth-child(2)
+.timeDisp
 {
-    width:2px;
-    height: 15px;
-    background-color: black;
-    margin-left: 19.7%;
+
+   margin-top: 15px;
+   margin-left: -10px;
+   font-size: 1em;
 }
-.gantt_time:nth-child(3)
+.ganttLay
 {
-    width:2px;
-    height: 15px;
-    background-color: black;
-    margin-left: 34.7%;
-}
-.gantt_time:nth-child(4)
-{
-    width:2px;
-    height: 15px;
-    background-color: black;
-    margin-left: 23.7%;
-}
-/*
-.gantt2
-{
-    width:30%;
     display: flex;
-    background-color: rgb(131, 209, 42);
-    height: 20px;
+    flex-direction: column;
+    width: 100%;
 }
-.gantt3
-{
-    width:40%;
-    display: flex;
-    background-color: rgb(206, 65, 47);
-    height: 20px;
-}
-*/
 .drop_downWidth{
     width:70px;
     font-family: 'Nunito', sans-serif;

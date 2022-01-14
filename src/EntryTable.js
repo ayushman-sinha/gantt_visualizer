@@ -27,11 +27,11 @@ const EntryTable = ({numOfEntries}) => {
           values.map((value, i) => (i === index ? e.target.value : value))         
         ); 
        
-        
-         if(e.target.value.length===0)
-        setBurstCount(burstCount-1);
-        else if(e.target.value.length===1)
+        const a=e.target.value.trim();
+         if(a!=0)
         setBurstCount(burstCount+1);
+        else 
+        setBurstCount(burstCount-1);
       };
       
     }
