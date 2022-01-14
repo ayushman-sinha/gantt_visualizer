@@ -3,19 +3,19 @@ import './barStyle.css';
 
 const Barchart=(props)=>{    
   let sel = props.selected_val; 
- let arivalTime=props.arrivalArray; //Array containing the Arrival Times
+ let arrivalTime1=props.arrivalArray; //Array containing the Arrival Times
  let burstTime=props.burstArray;//Array containing the Burst Times
  let arrivalCount=props.countA;
  let burstCount=props.countB;
 console.log(burstCount);
 /* console.log( arivalTime);
  console.log(burstTime);*/
- 
 
+let arrivalTime=arrivalTime1;
   let ans=[];
   function getColor(k)
   {
-    var arColor=['#498331','#7D1538','#ED254E','#153B50','#D77A61','#393D3F','#74C2FC','#011936'];
+    var arColor=['#498331','#7D1538','#ED254E','#153B50','#D77A61','#393D3F','#34C2FC','#011936'];
     return arColor[k-1];
   }
 function getRandomColor(k) {
@@ -49,11 +49,21 @@ function getWidth(index)
  // console.log(sum);
   return sum;
 }
+function calcualteBurst(index)
+{
+  let sum=parseInt(0);
+  for(let i=0;i<=index;i++)
+  {
+     if(burstTime[i]!==null)
+     sum+=Number(burstTime[i]);
+  }
+  return sum;
+}
 //if(burstCount==sel)
  for (let i = 1; i <= sel; i++)  
  {
    if(i===1)
-   ans[i]=(<> <div className='time_container'>
+   ans[i]=(<> <div className='time_container'   >
      <div className='gantt_time'><div className='timeDisp'>0ms</div></div>
      </div>
 
@@ -66,7 +76,7 @@ function getWidth(index)
               </div> 
 
                 <div className='time_container'>
-                <div className='gantt_time'><div className='timeDisp'>{burstTime[i-1]}ms
+                <div className='gantt_time'><div className='timeDisp'>{calcualteBurst(i-1)}ms
                 </div>
                 </div>
                 </div>      
@@ -82,7 +92,7 @@ function getWidth(index)
 
             <div className='time_container'>
              <div className='gantt_time'>
-              <div className='timeDisp'>{burstTime[i-1]}ms
+              <div className='timeDisp'>{calcualteBurst(i-1)}ms
               </div>
               
               </div>
@@ -90,7 +100,25 @@ function getWidth(index)
            </>);
 
 }
- 
+
+/*
+for (let i =0; i < sel-1; i++)  
+{
+ for(let j=0;j<sel-i-1;j++)
+ {
+   if(arrivalTime[j]>arrivalTime[j+1])
+   {
+     let tmp=arrivalTime[j];
+     arrivalTime[j]=arrivalTime[j+1];
+     arrivalTime[j+1]=tmp;
+     let tmp1=ans[j];
+     ans[j]=ans[j+1];
+     ans[j+1]=tmp1;
+   }
+ }
+}*/
+
+
 
         return (<div>
             <div className='gantt_container'>
