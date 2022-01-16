@@ -3,15 +3,16 @@ import './barStyle.css';
 
 const Barchart=(props)=>{    
   let sel = props.selected_val; 
- let arrivalTime1=props.arrivalArray; //Array containing the Arrival Times
+ let arrivalTime=props.arrivalArray; //Array containing the Arrival Times
  let burstTime=props.burstArray;//Array containing the Burst Times
  let arrivalCount=props.countA;
  let burstCount=props.countB;
-console.log(burstCount);
+//console.log(burstCount);
 /* console.log( arivalTime);
  console.log(burstTime);*/
 
-let arrivalTime=arrivalTime1;
+let ar1=arrivalTime;
+
   let ans=[];
   function getColor(k)
   {
@@ -83,7 +84,7 @@ function calcualteBurst(index)
               </>);
         else
             ans[i]=(<><div className='gantt1'
-            key={i}
+            key={arrivalTime[i]}
             style={{ background: getColor(i), 
             color: `white`, 
             width: getWidth(i - 1) + `%` }}>
@@ -100,7 +101,27 @@ function calcualteBurst(index)
            </>);
 
 }
-
+function sortArrival(e)
+{
+  console.log(ar1);
+ let tmp=[];
+ var c=0;
+ for(let i=0;i<8;i++)
+ {
+    if(ar1[i]!=="")
+    {
+    tmp.push(ar1[i]);   
+    }
+    else
+    c++;
+ }
+ if(c===0)
+ return;
+ 
+    ar1=tmp;
+    //ar1.sort((a,b)=>a-b);
+  console.log(ar1);
+}
 /*
 for (let i =0; i < sel-1; i++)  
 {
@@ -121,6 +142,7 @@ for (let i =0; i < sel-1; i++)
 
 
         return (<div>
+            <button onClick={(e)=>sortArrival(e)}>Click Me</button>
             <div className='gantt_container'>
             <div className='ganttLay'>
             <div className='gantt_main'>

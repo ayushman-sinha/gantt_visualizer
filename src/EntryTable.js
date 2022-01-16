@@ -80,7 +80,7 @@ const EntryTable = ({numOfEntries}) => {
           </thead>
           <tbody>{ArrayEntry}</tbody>
         </table>
-        <button>Click Me</button>
+      
         <Barchart selected_val={entry} arrivalArray={inputArrival} burstArray={inputBurst} countA={arrivalCount} countB={burstCount}></Barchart>
       </div>
     );
