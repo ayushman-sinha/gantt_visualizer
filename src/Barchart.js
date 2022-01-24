@@ -12,6 +12,28 @@ const Barchart=(props)=>{
  console.log(burstTime);*/
 
 let ar1=[...arrivalTime];
+let ar2=[...burstTime];
+
+for(let i=0;i<8;i++)//Bubble sorting values of burstTime according to their arrival TImes for FCFS
+{
+  for(let j=0;j<8-i-1;j++)
+  {
+    if(ar1[j]>ar1[j+1])
+    {
+      let tmp1=ar1[j];
+      ar1[j]=ar1[j+1];
+      ar1[j+1]=tmp1;
+
+      tmp1=ar2[j];
+      ar2[j]=ar2[j+1];
+      ar2[j+1]=tmp1;
+    }
+  }
+}
+console.log(ar1,sel)
+//console.log(ar1);
+ar1.splice(0,8-sel);
+ar2.splice(0,8-sel);
 
   let ans=[];
   function getColor(k)
@@ -38,13 +60,17 @@ function getRandomColor(k) {
 function getWidth(index)
 {
   let sum=parseInt(0);
-  for(let i=0;i<8;i++)
+  for(let i=0;i<ar2.length;i++)
   {
-     if(burstTime[i]!==null)
+     if(ar2[i]!='')
+     sum+=Number(ar2[i]);
+     if(ar1[i]==''&&ar2[i]=='')
      sum+=Number(burstTime[i]);
   }
-
+  if(ar1[0]==='')
   sum=(burstTime[index]/sum)*100;
+   if(ar1[0]!==''&&ar2[0]!=='')
+  sum=(ar2[index]/sum)*100;
 
   sum=Math.ceil(sum);
  // console.log(sum);
@@ -55,15 +81,28 @@ function calcualteBurst(index)
   let sum=parseInt(0);
   for(let i=0;i<=index;i++)
   {
-     if(burstTime[i]!==null)
+     if(ar2[i]!==null)
+     sum+=Number(ar2[i]);
+     if(ar1[0]=='')
      sum+=Number(burstTime[i]);
   }
   return sum;
 }
+function calculateProcessTime(index)
+{
+  if(ar1[0]=='')
+  return index;
+  for(let i=0;i<ar2.length;i++)
+  {     
+       if(ar2[index]===burstTime[i])
+       return i;
+  }
+  return 0;
+}
+
 //if(burstCount==sel)
  for (let i =0; i < sel; i++)  
- {
-  
+ {  
    if(i===0)
    ans[i]=(<> <div className='time_container'   >
      <div className='gantt_time'><div className='timeDisp'>0ms</div></div>
@@ -74,7 +113,7 @@ function calcualteBurst(index)
             style={{ background: getColor(i), 
             color: `white`, 
             width: getWidth(i) + `%` }}>
-              P{i}
+              P{calculateProcessTime(i)}
               </div> 
 
                 <div className='time_container'>
@@ -85,11 +124,11 @@ function calcualteBurst(index)
               </>);
         else
             ans[i]=(<><div className='gantt1'
-            key={arrivalTime[i]}
+            key={i}
             style={{ background: getColor(i), 
             color: `white`, 
             width: getWidth(i) + `%` }}>
-             P{i}
+             P{calculateProcessTime(i)}
             </div>
 
             <div className='time_container'>
@@ -102,15 +141,15 @@ function calcualteBurst(index)
 
 }
 
-ar1.sort((a,b) => a-b);
-//console.log(ar1);
-ar1.splice(0,8-sel);
+//ar1.sort((a,b) => a-b);
+
 //console.log(ar1);
 //console.log(arrivalTime);
+/*
 let sortStore=[-1,-1,-1,-1,-1,-1,-1,-1];
 for(let i=0;i<sel;i++)
 {
-  console.log(sortStore);
+ // console.log(sortStore);
   if(ar1[0]==='')
   break;
    for(let j=0;j<sel;j++)
@@ -121,10 +160,67 @@ for(let i=0;i<sel;i++)
        let tmp=ans[i];
        ans[i]=ans[j];
        ans[j]=tmp;
+       
        break;
      }
    }
 }
+
+if(ar1[0]!=='')
+{
+  for (let i =0; i < sel; i++)  
+  {
+   
+    if(i===0)
+    ans[i]=(<> <div className='time_container'   >
+      <div className='gantt_time'><div className='timeDisp'>0ms</div></div>
+      </div>
+ 
+           <div className='gantt1'
+           key={i}
+             style={{ background: getColor(i), 
+             color: `white`, 
+             width: getWidth(i) + `%` }}>
+               P{i}
+               </div> 
+ 
+                 <div className='time_container'>
+                 <div className='gantt_time'><div className='timeDisp'>{ar2(i)}ms
+                 </div>
+                 </div>
+                 </div>      
+               </>);
+         else
+             ans[i]=(<><div className='gantt1'
+             key={arrivalTime[i]}
+             style={{ background: getColor(i), 
+             color: `white`, 
+             width: getWidth(i) + `%` }}>
+              P{i}
+             </div>
+ 
+             <div className='time_container'>
+              <div className='gantt_time'>
+               <div className='timeDisp'>{calcualteBurst(i)}ms
+               </div>              
+               </div>
+               </div>
+            </>);
+ 
+ }
+
+}
+
+*/
+
+
+
+
+
+
+
+
+
 const sortArrival=(e)=>
 {
 
@@ -143,25 +239,11 @@ const sortArrival=(e)=>
     //ar1.sort((a,b)=>a-b);
   console.log(ar1);
 }
-/*
-for (let i =0; i < sel-1; i++)  
-{
- for(let j=0;j<sel-i-1;j++)
- {
-   if(arrivalTime[j]>arrivalTime[j+1])
-   {
-     let tmp=arrivalTime[j];
-     arrivalTime[j]=arrivalTime[j+1];
-     arrivalTime[j+1]=tmp;
-     let tmp1=ans[j];
-     ans[j]=ans[j+1];
-     ans[j+1]=tmp1;
-   }
- }
-}*/
 
 
-console.log(ans);
+/*console.log(ar1);
+console.log(ar2);*/
+//console.log(ans);
         return (<div>
             <button onClick={(e)=>sortArrival(e)}>Click Me</button>
             <div className='gantt_container'>
