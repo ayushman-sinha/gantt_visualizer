@@ -5,18 +5,15 @@ const Barchart=(props)=>{
   let sel = props.selected_val; 
  let arrivalTime=props.arrivalArray; //Array containing the Arrival Times
  let burstTime=props.burstArray;//Array containing the Burst Times
- let arrivalCount=props.countA;
- let burstCount=props.countB;
-//console.log(burstCount);
-/* console.log( arivalTime);
- console.log(burstTime);*/
 
-let ar1=[...arrivalTime];
-let ar2=[...burstTime];
+let ar1=[...arrivalTime];//Array containing the Arrival Times[DUPLICATE]
+let ar2=[...burstTime];//Array containing the Burst Times [DUPLICATE]
 
-for(let i=0;i<8;i++)//Bubble sorting values of burstTime according to their arrival TImes for FCFS
+ar1.splice(sel);
+ar2.splice(sel);//Removing the empty elements
+for(let i=0;i<ar1.length;i++)//Bubble sorting values of burstTime according to their arrival TImes for FCFS
 {
-  for(let j=0;j<8-i-1;j++)
+  for(let j=0;j<ar1.length-i-1;j++)
   {
     if(ar1[j]>ar1[j+1])
     {
@@ -30,15 +27,11 @@ for(let i=0;i<8;i++)//Bubble sorting values of burstTime according to their arri
     }
   }
 }
-console.log(ar1,sel)
-//console.log(ar1);
-ar1.splice(0,8-sel);
-ar2.splice(0,8-sel);
 
   let ans=[];
   function getColor(k)
   {
-    var arColor=['#498331','#7D1538','#ED254E','#153B50','#D77A61','#393D3F','#34C2FC','#011936'];
+    var arColor=['#498331','#7D1538','#ED254E','#153B50','#D77A61','#393D3F','#34C2FC','#014936','#0112FC','#011538'];
     return arColor[k];
   }
 function getRandomColor(k) {
@@ -100,7 +93,7 @@ function calculateProcessTime(index)
   return 0;
 }
 
-//if(burstCount==sel)
+
  for (let i =0; i < sel; i++)  
  {  
    if(i===0)
@@ -141,120 +134,14 @@ function calculateProcessTime(index)
 
 }
 
-//ar1.sort((a,b) => a-b);
-
-//console.log(ar1);
-//console.log(arrivalTime);
-/*
-let sortStore=[-1,-1,-1,-1,-1,-1,-1,-1];
-for(let i=0;i<sel;i++)
-{
- // console.log(sortStore);
-  if(ar1[0]==='')
-  break;
-   for(let j=0;j<sel;j++)
-   {
-     if(sortStore[j]===-1&&ar1[i]===arrivalTime[j])
-     {      
-       sortStore[i]=j;
-       let tmp=ans[i];
-       ans[i]=ans[j];
-       ans[j]=tmp;
-       
-       break;
-     }
-   }
-}
-
-if(ar1[0]!=='')
-{
-  for (let i =0; i < sel; i++)  
-  {
-   
-    if(i===0)
-    ans[i]=(<> <div className='time_container'   >
-      <div className='gantt_time'><div className='timeDisp'>0ms</div></div>
-      </div>
- 
-           <div className='gantt1'
-           key={i}
-             style={{ background: getColor(i), 
-             color: `white`, 
-             width: getWidth(i) + `%` }}>
-               P{i}
-               </div> 
- 
-                 <div className='time_container'>
-                 <div className='gantt_time'><div className='timeDisp'>{ar2(i)}ms
-                 </div>
-                 </div>
-                 </div>      
-               </>);
-         else
-             ans[i]=(<><div className='gantt1'
-             key={arrivalTime[i]}
-             style={{ background: getColor(i), 
-             color: `white`, 
-             width: getWidth(i) + `%` }}>
-              P{i}
-             </div>
- 
-             <div className='time_container'>
-              <div className='gantt_time'>
-               <div className='timeDisp'>{calcualteBurst(i)}ms
-               </div>              
-               </div>
-               </div>
-            </>);
- 
- }
-
-}
-
-*/
-
-
-
-
-
-
-
-
-
-const sortArrival=(e)=>
-{
-
- let tmp=[];
- var c=0;
- for(let i=0;i<8;i++)
- {
-    if(ar1[i]!==null&&ar1[i]!==undefined)
-    {
-    tmp.push(ar1[i]);   
-    }
-    else
-    c++;
- }
-  ar1=tmp;
-    //ar1.sort((a,b)=>a-b);
-  console.log(ar1);
-}
-
-
-/*console.log(ar1);
-console.log(ar2);*/
-//console.log(ans);
-        return (<div>
-            <button onClick={(e)=>sortArrival(e)}>Click Me</button>
+        return (<div>           
             <div className='gantt_container'>
             <div className='ganttLay'>
-            <div className='gantt_main'>
-             
+            <div className='gantt_main'>             
            {ans}
            </div>
-        </div>
-            </div>
-            
+           </div>
+            </div>            
             </div>);
     }
 

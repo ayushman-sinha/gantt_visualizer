@@ -4,8 +4,8 @@ import Barchart from './Barchart';
 
 const EntryTable = ({numOfEntries}) => {
   let entry=numOfEntries;
-    const [inputArrival, setInputArrival] = useState(Array(8).fill(""));
-    const [inputBurst, setInputBurst] = useState(Array(8).fill(""));  
+    const [inputArrival, setInputArrival] = useState(Array(10).fill(""));
+    const [inputBurst, setInputBurst] = useState(Array(10).fill(""));  
     //console.log(entry);
     const[arrivalCount,setArrivalCount]=useState(0);
     const[burstCount,setBurstCount]=useState(0);
