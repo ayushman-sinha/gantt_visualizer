@@ -11,6 +11,8 @@ let ar2=[...burstTime];//Array containing the Burst Times [DUPLICATE]
 
 ar1.splice(sel);
 ar2.splice(sel);//Removing the empty elements
+ar1=ar1.map((x)=>+x);
+ar2=ar2.map((x)=>+x);
 for(let i=0;i<ar1.length;i++)//Bubble sorting values of burstTime according to their arrival TImes for FCFS
 {
   for(let j=0;j<ar1.length-i-1;j++)
@@ -27,7 +29,7 @@ for(let i=0;i<ar1.length;i++)//Bubble sorting values of burstTime according to t
     }
   }
 }
-
+console.log(ar1);
   let ans=[];
   function getColor(k)
   {
@@ -74,11 +76,13 @@ function calcualteBurst(index)
   let sum=parseInt(0);
   for(let i=0;i<=index;i++)
   {
-     if(ar2[i]!==null)
+     if(ar2[i]!=='')
      sum+=Number(ar2[i]);
-     if(ar1[0]=='')
+     if(ar1[0]==='')
      sum+=Number(burstTime[i]);
   }
+  if(ar1[0]=='')
+  return sum/2;
   return sum;
 }
 function calculateProcessTime(index)
@@ -87,7 +91,7 @@ function calculateProcessTime(index)
   return index;
   for(let i=0;i<ar2.length;i++)
   {     
-       if(ar2[index]===burstTime[i])
+       if(ar2[index]==burstTime[i])
        return i;
   }
   return 0;
