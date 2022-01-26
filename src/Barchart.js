@@ -8,7 +8,9 @@ const Barchart=(props)=>{
 
 let ar1=[...arrivalTime];//Array containing the Arrival Times[DUPLICATE]
 let ar2=[...burstTime];//Array containing the Burst Times [DUPLICATE]
-
+let ar3=[];//Array storing the process numbers
+for(let i=0;i<sel;i++)
+ar3.push(i);
 ar1.splice(sel);
 ar2.splice(sel);//Removing the empty elements
 ar1=ar1.map((x)=>+x);
@@ -26,10 +28,13 @@ for(let i=0;i<ar1.length;i++)//Bubble sorting values of burstTime according to t
       tmp1=ar2[j];
       ar2[j]=ar2[j+1];
       ar2[j+1]=tmp1;
+
+      tmp1=ar3[j];
+      ar3[j]=ar3[j+1];
+      ar3[j+1]=tmp1;
     }
   }
 }
-console.log(ar1);
   let ans=[];
   function getColor(k)
   {
@@ -81,22 +86,37 @@ function calcualteBurst(index)
      if(ar1[0]==='')
      sum+=Number(burstTime[i]);
   }
-  if(ar1[0]=='')
-  return sum/2;
+  
   return sum;
 }
+let hashAr=[];
 function calculateProcessTime(index)
 {
   if(ar1[0]=='')
   return index;
   for(let i=0;i<ar2.length;i++)
-  {     
+  {  
+    let a=false;
+    for(let j=0;j<hashAr.length;j++)
+    {
+    if(i==hashAr[j])
+    {
+      a=true;
+      break;
+    }   
+    }
+    if(a)
+    continue;
        if(ar2[index]==burstTime[i])
+       {
+         
+         hashAr.push((i));
        return i;
+       }
   }
   return 0;
 }
-
+console.log(hashAr);
 
  for (let i =0; i < sel; i++)  
  {  
@@ -110,7 +130,7 @@ function calculateProcessTime(index)
             style={{ background: getColor(i), 
             color: `white`, 
             width: getWidth(i) + `%` }}>
-              P{calculateProcessTime(i)}
+              P{ar3[i]}
               </div> 
 
                 <div className='time_container'>
@@ -125,7 +145,7 @@ function calculateProcessTime(index)
             style={{ background: getColor(i), 
             color: `white`, 
             width: getWidth(i) + `%` }}>
-             P{calculateProcessTime(i)}
+             P{ar3[i]}
             </div>
 
             <div className='time_container'>
