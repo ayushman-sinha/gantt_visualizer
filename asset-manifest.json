@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/gantt_visualizer/static/css/main.884a6867.css",
-    "main.js": "/gantt_visualizer/static/js/main.9a478c6c.js",
+    "main.js": "/gantt_visualizer/static/js/main.cdfa38b0.js",
     "static/js/787.3e11c266.chunk.js": "/gantt_visualizer/static/js/787.3e11c266.chunk.js",
     "index.html": "/gantt_visualizer/index.html",
     "main.884a6867.css.map": "/gantt_visualizer/static/css/main.884a6867.css.map",
-    "main.9a478c6c.js.map": "/gantt_visualizer/static/js/main.9a478c6c.js.map",
+    "main.cdfa38b0.js.map": "/gantt_visualizer/static/js/main.cdfa38b0.js.map",
     "787.3e11c266.chunk.js.map": "/gantt_visualizer/static/js/787.3e11c266.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.884a6867.css",
-    "static/js/main.9a478c6c.js"
+    "static/js/main.cdfa38b0.js"
   ]
 }
