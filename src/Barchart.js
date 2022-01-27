@@ -89,34 +89,6 @@ function calcualteBurst(index)
   
   return sum;
 }
-let hashAr=[];
-function calculateProcessTime(index)
-{
-  if(ar1[0]=='')
-  return index;
-  for(let i=0;i<ar2.length;i++)
-  {  
-    let a=false;
-    for(let j=0;j<hashAr.length;j++)
-    {
-    if(i==hashAr[j])
-    {
-      a=true;
-      break;
-    }   
-    }
-    if(a)
-    continue;
-       if(ar2[index]==burstTime[i])
-       {
-         
-         hashAr.push((i));
-       return i;
-       }
-  }
-  return 0;
-}
-console.log(hashAr);
 
  for (let i =0; i < sel; i++)  
  {  

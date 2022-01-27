@@ -9,12 +9,20 @@ body{
     overflow: hidden;
    
 }
+.containerBig{
+    display: flex;
+    width: auto;
+    flex-direction: column;
+    align-content: center;    
+    align-items: center;
+    margin-bottom: 1em;
+}
 .Main_Container{
     align-content: center;
     align-items: center;
     display:flex;
-   flex-direction: column;
- 
+    flex-direction: column;
+    
     justify-content: center;
     text-align: center;
   
